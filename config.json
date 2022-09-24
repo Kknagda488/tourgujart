@@ -1,0 +1,17 @@
+{
+    "params":
+    {
+        "local_server": "True",
+        "local_uri": "sqlite:///tourgujarat.db",
+        "prod_uri":"sqlite:///tourgujarat.db",
+        "fb_url": "https://facebook.com/petnation",
+        "ig_url": "https://instagram.com/",
+        "wt_url": "https://chat.whatsapp.com/EOWkMvCovISK9BRrtcf6To",
+        "tw_url": "https://twitter.com/petnation",
+        "gmail-user": "kknagda488@gmail.com",
+        "gmail-Krishna" : "krishnajcr72004@gmail.com",
+        "krishna-password": "rxqwlmgigaocgfkt",
+        "gmail-password": "cpyozwlnpynpihch",
+        "secret_key": "thisissecret"
+    }
+}

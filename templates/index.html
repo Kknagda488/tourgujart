@@ -1,0 +1,581 @@
+{% extends "layout.html" %} {% block body %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" />
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+/* Font */
+/* background */
+
+* {
+  
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  
+  
+}
+a{
+  text-decoration: none;
+}
+
+body {
+  margin: 0px;
+  font-family: 'segoe ui';
+  
+background: linear-gradient(90deg, rgba(63,251,125,0) 25%, rgba(244,216,168,1) 100%);
+}
+
+.nav {
+  height: 50px;
+  width: 100%;
+  background-color: #4d4d4d;
+  position: relative;
+}
+
+.nav > .nav-header {
+  display: inline;
+}
+
+.nav > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+}
+
+.nav > .nav-btn {
+  display: none;
+}
+
+.nav > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 18px;
+}
+
+.nav > .nav-links > a {
+  display: inline-block;
+  padding: 13px 10px 13px 10px;
+  text-decoration: none;
+  color: #efefef;
+}
+
+.nav > .nav-links > a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav > #nav-check {
+  display: none;
+}
+
+@media (max-width:600px) {
+  .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #333;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  }
+  .nav > .nav-links > a {
+    display: block;
+    width: 100%;
+  }
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}
+/* banner */
+.banner img{
+  /* background: url(again.jpeg); */
+  background-repeat: no-repeat;
+  padding: 6px;
+}
+/* cards */
+
+/* Design */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #ecf9ff;
+}
+
+body {
+  color: #272727;
+  font-family: 'Quicksand', serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 1rem;
+}
+
+.main{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.btn {
+  color: #ffffff;
+  padding: 0.8rem;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 400;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards_item {
+  display: flex;
+  padding: 1rem;
+}
+.card_image img{
+  width: 367.983px;
+  height: 264px;
+}
+
+@media (min-width: 40rem) {
+  .cards_item {
+    width: 50%;
+  }
+}
+
+@media (min-width: 56rem) {
+  .cards_item {
+    width: 33.3333%;
+  }
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card_content {
+  padding: 1rem;
+  background: linear-gradient(to bottom left, #dbb3b9 40%, #e49869 100%);
+}
+
+.card_title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0px;
+}
+
+.card_text {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;    
+  font-weight: 400;
+}
+/* USER-RATING */
+
+/* * {
+  box-sizing: border-box;
+}
+/* body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: #f7f8fc;
+  font-family: "Roboto", sans-serif;
+  color: #10182f; */
+
+/* .card {
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 300px;
+}
+.card-header img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  min-height: 250px;
+}
+
+.tag {
+  background: #cccccc;
+  border-radius: 50px;
+  font-size: 12px;
+  margin: 0;
+  color: #fff;
+  padding: 2px 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.tag-teal {
+  background-color: #47bcd4;
+}
+.tag-purple {
+  background-color: #5e76bf;
+}
+.tag-pink {
+  background-color: #cd5b9f;
+}
+
+.card-body p {
+  font-size: 13px;
+  margin: 0 0 40px;
+}
+.user {
+  display: flex;
+  margin-top: auto;
+}
+
+.user img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+.user-info h5 {
+  margin: 0;
+}
+.user-info small {
+  color: #545d7a;
+} */
+
+ 
+/* footer */
+.footer {
+  padding: 40px 0;
+  background-color: #4d4d4d;
+}
+
+.footer .social {
+  text-align: center;
+  padding-bottom: 25px;
+  color: #f9fcff;
+}
+
+.footer .social a {
+  font-size: 24px;
+  color: inherit;
+  border: 1px solid rgb(255, 255, 255);
+  width: 40px;
+  height: 40px;
+  line-height: 38px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  margin: 0 8px;
+  opacity: 0.75;
+}
+
+.footer .social a:hover {
+  opacity: 0.9;
+}
+
+.footer ul {
+  margin-top: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 0;
+  color: white;
+}
+
+.footer ul a {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.footer ul li {
+  display: inline-block;
+  padding: 0 15px;
+}
+
+.footer ul a:hover {
+  opacity: 1;
+}
+
+.footer .copyright {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 13px;
+  color: #aaa;
+}
+</style>
+<header
+  class="masthead"
+  style="background-image: url('{{ url_for('static', filename='assets/img/Lumii_20220902_155356513.jpg') }} '); margin:-16px;"
+></header>
+<span>
+  <br />
+  <h3>If you are dreaming of a vacation in paradise, Gujarat welcomes you</h3>
+  <br />
+  The land of rich history with culture, tradition and heritage. Gujarat is the
+  7th largest state in India, located in the western part of India. The vibrant
+  Indian state Gujarat is the most attractive tourist destination for
+  international and domestic travelers. You could travel to the incredible state
+  of India for many reasons. The state is blessed with the diverse attractions
+  such as historical monuments, world famous architecture, temples and exotic
+  wildlife. The Big B Amitabh Bachchan is honoring the Gujarat Tourism as Brand
+  ambassador. Come and get lost in ‘Khusboo Gujarat ki’.</span
+>
+<br />
+<h3>lets look at the most popular destinations of Gujarat</h3>
+we provide you with best in class services at lower price packages so everyone
+and anyone can enjoy the beauty of our beloved Gujarat
+<ul class="cards">
+  <li class="cards_item">
+    <div class="card">
+      <div class="card_image">
+        <img src="{{ url_for('static', filename='assets/img/harsh-mangukiya-M-1ojsN__YM-unsplash.jpg') }}" />
+      </div>
+      <div class="card_content">
+        <h2 class="card_title">Ahmedabad</h2>
+        <p class="card_text">
+          journey to some of the most amazing places of Ahmedabad
+        </p>
+        <a href="/ahmedabad" target="_parent"
+          ><button class="btn card_btn">Read More</button></a
+        >
+      </div>
+    </div>
+  </li>
+  <li class="cards_item">
+    <div class="card">
+      <div class="card_image"><img src="{{ url_for('static', filename='assets/img/dwa.jpeg') }}" /></div>
+      <div class="card_content">
+        <h2 class="card_title">Dwarka</h2>
+        <p class="card_text">
+          journey to the divine and spiritual city of<br />
+          lord Shree krishna
+        </p>
+        <a href="/dwarka" target="_parent"
+          ><button class="btn card_btn">Read More</button></a
+        >
+      </div>
+    </div>
+  </li>
+  <li class="cards_item">
+    <div class="card">
+      <div class="card_image">
+        <img src="{{ url_for('static', filename='assets/img/Sun-Temple-Modhera-AllIndiaInfluencersmeet2021.jpg') }}" />
+      </div>
+      <div class="card_content">
+        <h2 class="card_title">mehsana</h2>
+        <p class="card_text">
+          journey to land of engineering miracle of <br />
+          Gujarat
+        </p>
+        <a href="/mehsana" target="_parent"
+          ><button class="btn card_btn">Read More</button></a
+        >
+      </div>
+    </div>
+  </li>
+  <li class="cards_item">
+    <div class="card">
+      <div class="card_image"><img src="{{ url_for('static', filename='assets/img/Rann-utsav.jpeg') }}" /></div>
+      <div class="card_content">
+        <h2 class="card_title">Kutch</h2>
+        <p class="card_text">
+          journey to the biggest and the most beautiful district of <br />
+          Gujarat
+        </p>
+        <a href="/kutch" target="_parent"
+          ><button class="btn card_btn">Read More</button></a
+        >
+      </div>
+    </div>
+  </li>
+  <li class="cards_item">
+    <div class="card">
+      <div class="card_image"><img src="{{ url_for('static', filename='assets/img/sap.jpeg') }}" /></div>
+      <div class="card_content">
+        <h2 class="card_title">Saputara</h2>
+        <p class="card_text">
+          journey to one of the most beautiful hill station of <br />
+          Gujarat
+        </p>
+        <a href="/saputara" target="_parent"
+          ><button class="btn card_btn">Read More</button></a
+        >
+      </div>
+    </div>
+  </li>
+  <li class="cards_item">
+    <div class="card">
+      <div class="card_image"><img src="{{ url_for('static', filename='assets/img/stat.jpeg')}}" /></div>
+      <div class="card_content">
+        <h2 class="card_title">Statue of unity</h2>
+        <p class="card_text">
+          visit to the biggest and marvellous statue of the <br />
+          world
+        </p>
+        <a href="/statueOfUnity" target="_parent"
+          ><button class="btn card_btn">Read More</button></a
+        >
+      </div>
+    </div>
+  </li>
+</ul>
+<div class="content">
+  <h3>religious Tourism in Gujarat</h3>
+  <br />
+  <div class="rele">
+    Gujarat is home to a multitude of both Hindu and Jain devotional centres and
+    pilgrimages with famous temples such as Dwarka, Dakor, Radha Damodar Temple,
+    Junagadh, Ambaji, Palitana, Mahudi, Shankheshwar, Hutheesing Jain Temple,
+    Somnath, Girnar, Shamlaji, Bahucharaji, Pavagadh, Kabirvad, Sun Temple,
+    Modhera, Akshardham (Gandhinagar), Shri Swaminarayan Mandir, Ahmedabad,
+    Vasai Jain Temple, Ashapura Mata, Swaminarayan Temple, Ahmedabad, Narayan
+    Sarovar, Tulsi Shyam, Sattadhar, Lojpur, Junagadh Buddhist Cave Groups
+    etc.<br /><br />
+    The Palitana temples of Jainism on Mount Shatrunjaya, Palitana are
+    considered the holiest of all pilgrimage places by the Svetambara Jain
+    community. <br />Palitana is the world's only mountain with more than 900
+    temples. Gujarat is also known for the world-famous shrine of
+    Shehenshah-e-Gujarat Hazrat Syed Ali Meera Datar, a government heritage
+    site. The shrine of Hazrat Syed Ali Meera Datar Baba sees thousands of
+    visitors from all religions blessings every day. Followers of the shrine
+    believe that each and every problem and suffering of human life can be
+    solved by the spiritual force of shrine, which is situated in a small
+    village named Unava(mehsana), about 90 km from Ahmedabad. <br />
+    <br />
+    <h3>Business tourism</h3>
+    <br />
+    Gujarat is one of the most industrialized states in the country. There are
+    many Indian and global companies located in Gujarat and the area has seen
+    double digit GDP growth in past decade. It is also known as "Growth Engine
+    of India". <br />
+
+    Vibrant Gujarat is biennial investors' summit held by the government of
+    Gujarat. The event is aimed at bringing together business leaders,
+    investors, corporations, thought leaders, policy and opinion makers; the
+    summit is advertised as a platform to understand and explore business
+    opportunities in the state. It has become a model for economic success for
+    many states. According to the list of the top 10 Indian cities by GDP in
+    2009, based on a PricewaterhouseCoopers study,Ahmedabad ranks 7th in India
+    with an annual GDP of US$59 billion. <br />
+
+    Gujarat International Finance Tec-City is an under-construction city in
+    Gujarat. It will be located next to the Sabarmati river, 12 km north of
+    Ahmedabad and 8 km South of Gandhinagar, the political capital of the state.
+    It will be built on 500 acres (2.0 km2) of land. Its main purpose is to
+    provide high-quality physical infrastructure so that finance and tech firms
+    can relocate their operations there from Mumbai, Bangalore, Gurgaon and
+    other regions where infrastructure is either inconsistent or very expensive.
+    <br /><br />
+    <h3>Archeological and heritage tourism</h3>
+    <br />
+    Within Gujarat there are a wide variety of historic forts, palaces, mosques,
+    temples, and places of historical importance in India's struggle for
+    independence. Many of these palaces and forts have been converted into
+    heritage hotels to keep tourists close to the vibrant history of Gujarat.
+    For example, Laxmi Vilas Palace, Vadodara is reputed to have been the
+    largest private dwelling built at the time and it is four times the size of
+    Buckingham Palace in London. These sites are under-developed and are
+    considered to have huge development potential. World heritage sites like
+    Lothal, Dholavira and Champaner are also located within Gujarat.
+  </div>
+</div>
+<br /><br />
+
+<h2>How to reach Gujarat?</h2>
+<br />
+<img src="{{ url_for('static', filename='assets/img/aircraft-g3a1ee2ce0_1920.jpg')}}" alt="" />
+<p>
+  By Train <br />
+  The major railway stations in Gujarat are Surat, Ahmedabad, Rajkot and
+  Vadodara. Vadodara Railway Station is the busiest since it's a part of the
+  Delhi-Mumbai railway line.
+  <br /><br />
+
+  By Air <br />
+  Gujarat has domestic as well as international airports. Sardar Vallabhbhai
+  Patel International Airport is the major airport. Surat, Rajkot and Bhavnagar
+  are some domestic airports.
+
+  <br /><br />
+  By Road <br />
+  There are several national highways that connect Gujarat to the rest of India.
+  The first Express highway number 1 connects Ahmedabad to Vadodara.
+</p>
+<br /><br />
+
+{% endblock %}

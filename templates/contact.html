@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/imageGallery.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='assets/img/android-chrome-512x512.png') }}"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %}
+    <ul class="flashes">
+      {% for category, message in messages %}
+      <div
+        class="alert alert-{{category}} alert-dismissible fade show"
+        role="alert"
+      >
+        <strong>Message:</strong> {{message}}
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+
+    <div class="container">
+      <div class="content">
+        <div class="left-side">
+          <div class="address details">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="topic">Address</div>
+            <div class="text-one">Adipur,Gandhidham</div>
+            <div class="text-two">Gujarat</div>
+          </div>
+          <div class="phone details">
+            <i class="fas fa-phone-alt"></i>
+            <div class="topic">Phone</div>
+            <div class="text-one">+91 9106395129</div>
+            <div class="text-two">+</div>
+          </div>
+          <div class="email details">
+            <i class="fas fa-envelope"></i>
+            <div class="topic">Email</div>
+            <div class="text-one">kj5129@gmail.com</div>
+            <div class="text-two"></div>
+          </div>
+        </div>
+        <div class="right-side">
+          <div class="topic-text">Contact us</div>
+          <p>
+            If you have any doubts related to the website please fell free to
+            contact me.
+          </p>
+
+          <form
+            id="contactForm"
+            data-sb-form-api-token="API_TOKEN"
+            action="/contact"
+            method="post"
+          >
+            <div class="input-box">
+              <input
+                type="text"
+                placeholder="Enter your name..."
+                name="name"
+                data-sb-validations="required"
+              />
+            </div>
+            <div class="input-box">
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your email..."
+                data-sb-validations="required,email"
+              />
+            </div>
+            <div class="input-box">
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Enter your phone number..."
+                data-sb-validations="required"
+              />
+            </div>
+            <div class="input-box message-box">
+              <textarea
+                name="message"
+                placeholder="Enter your message here..."
+                style="height: 8rem"
+                data-sb-validations="required"
+              ></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit" value="submit">
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+  </body>
+</html>

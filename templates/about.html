@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>about us!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/aboutUs.css')}}">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <link rel="shortcut icon" href="{{ url_for('static', filename='assets/img/android-chrome-512x512.png')}}" type="image/x-icon">
+
+</head>
+<body>
+    <div class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+          <div class="nav-title">
+           TourGujarat
+          </div>
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+        
+        <div class="nav-links">
+        
+          <a href="/home" target="_blank">Home</a>
+          <a href="/aboutUS" target="_blank">About us!</a>
+          <a href="/login" target="_blank">Login</a>
+          <a href="/imageGallery" target="_blank">Contact us</a>
+        </div>
+        
+      </div>
+      <div class="section">
+        <div class="container">
+          <div class="content-section">
+            <div class="title">
+              <h1>About Us</h1>
+            </div>
+            <div class="content">
+              <h3>Explore the best kept secrets of Gujarat </h3>
+              <p>This website allows the user to know about the beautiful locations of gujarat . user can connect to us and book any packages listed on this website</p>
+              <div class="button">
+                <a href="/">Read More</a>
+              </div>
+            </div>
+            <div class="social">
+              <a href=""><i class="fab fa-facebook-f"></i></a>
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href="https://instagram.com/_krishna.j29_?igshid=YmMyMTA2M2Y="><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="image-section">
+            <img src="{{ url_for('static', filename='assets/img/wblogo.jpeg')}}">
+          </div>
+        </div>
+      </div>
+    
+      
+      <section class="footer">
+        <div class="social">
+          <a href="https://instagram.com/_krishna.j29_?igshid=YmMyMTA2M2Y="><i class="fab fa-instagram"></i></a>
+          <a href="https://www.snapchat.com/add/krishna_v2966?share_id=pwgK7iwk4SU&locale=en-IN"><i class="fab fa-snapchat"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+  
+        <ul class="list">
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/aboutUS">About uS</a>
+          </li>
+          <li>
+            <a href="/login">Login</a>
+          </li>
+          <li>
+            <a href="/contact">Contact us</a>
+          </li>
+         
+          <!-- <li>
+            <a href="#">Privacy Policy</a>
+          </li> -->
+        </ul>
+        <p class="copyright">TourGujarat @ 2021</p>
+      </section>
+</body>
+</html>
